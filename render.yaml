@@ -1,0 +1,16 @@
+# Render Blueprint: New > Blueprint > pick this repo. Needs a paid plan for the persistent disk.
+services:
+  - type: web
+    name: pydrive
+    runtime: docker
+    plan: starter
+    healthCheckPath: /healthz
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATA_DIR
+        value: /data
+    disk:
+      name: drive-data
+      mountPath: /data
+      sizeGB: 10

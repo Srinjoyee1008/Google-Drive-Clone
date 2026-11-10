@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PyDrive</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232D54E8'/><path d='M8 20l8-12 8 12z' fill='white'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="auth" hidden>
+    <form id="auth-form" class="auth-card" autocomplete="on">
+      <div class="brand"><span class="logo"></span>PyDrive</div>
+      <h1 id="auth-title">Sign in</h1>
+      <label id="name-row" hidden>Name<input id="auth-name" autocomplete="name"></label>
+      <label>Email<input id="auth-email" type="email" required autocomplete="email"></label>
+      <label>Password<input id="auth-pass" type="password" required minlength="8" autocomplete="current-password"></label>
+      <p id="auth-error" class="error" role="alert"></p>
+      <button class="btn primary" id="auth-submit">Sign in</button>
+      <button type="button" class="link" id="auth-toggle">New here? Create an account</button>
+    </form>
+  </div>
+
+  <div id="app" hidden>
+    <aside id="sidebar">
+      <div class="brand"><span class="logo"></span>PyDrive</div>
+      <button class="btn primary new" id="new-btn" aria-haspopup="menu">+ New</button>
+      <nav id="nav">
+        <a href="#/" data-view="my">My Drive</a>
+        <a href="#/recent" data-view="recent">Recent</a>
+        <a href="#/starred" data-view="starred">Starred</a>
+        <a href="#/trash" data-view="trash">Trash</a>
+      </nav>
+      <div class="storage">
+        <div class="meter"><span id="meter-fill"></span></div>
+        <div id="storage-text"></div>
+      </div>
+    </aside>
+
+    <main>
+      <header id="topbar">
+        <button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+        <input id="search" type="search" placeholder="Search in Drive" aria-label="Search files">
+        <div class="spacer"></div>
+        <button class="icon-btn" id="layout-btn" aria-label="Switch between grid and list"></button>
+        <button class="avatar" id="user-btn" aria-label="Account"></button>
+      </header>
+      <div id="titlebar">
+        <nav id="crumbs" aria-label="Folder path"></nav>
+        <button class="btn danger-ghost" id="empty-trash" hidden>Empty trash</button>
+      </div>
+      <section id="content" tabindex="-1"></section>
+    </main>
+  </div>
+
+  <div id="drop-overlay" hidden><div>Drop files to upload</div></div>
+  <div id="uploads" hidden></div>
+  <div id="menu" class="menu" role="menu" hidden></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <input type="file" id="file-input" multiple hidden>
+  <script src="/app.js"></script>
+</body>
+</html>

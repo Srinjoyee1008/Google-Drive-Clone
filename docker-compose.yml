@@ -1,0 +1,12 @@
+services:
+  drive:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      SECRET_KEY: ${SECRET_KEY:?set SECRET_KEY in .env}
+      QUOTA_GB: "5"
+      MAX_UPLOAD_MB: "500"
+    volumes: ["drive-data:/data"]
+    restart: unless-stopped
+volumes:
+  drive-data:
