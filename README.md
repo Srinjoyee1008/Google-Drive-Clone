@@ -1,3 +1,12 @@
+What it does
+
+Accounts: sign up and sign in, with each user’s files kept private.
+Browsing: nested folders, breadcrumbs, grid and list views, search, Recent, Starred and Trash.
+Upload and preview: upload with progress by button or drag-and-drop, and preview of images, PDF, video, audio and plain text.
+Organising: download, rename, move (by dialog or by dragging onto a folder) and star.
+Trash: restore, delete forever and empty trash. Trashing a folder also trashes everything inside it, and restoring brings it all back.
+Sharing and limits: public share links for files, a per-user storage quota, and keyboard shortcuts (Enter, F2, Delete).
+
 # PyDrive
 
 A small Google-Drive-style app: FastAPI + SQLite + files on disk, with a dependency-free JS frontend.
